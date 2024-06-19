@@ -262,9 +262,13 @@ main{
             font-weight: 500;
         }
     }
+    section 
+        p {
+            color:#000000
+        }
     menu {
         a:is(:link, :visited){
-            color: rgb(2, 2, 2);
+            color: rgb(247, 8, 8);
             span {
                 background-color: rgb(47, 6, 196);
             }
