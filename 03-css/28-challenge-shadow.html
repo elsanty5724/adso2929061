@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01- Document html </title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        figure.frame {
+            height: calc(40 * 20px) ;
+            width: calc(24 * 20px) ;
+            margin: 2rem auto;
+            zoom: 0.8;
+        }
+        div.squares {
+            background: url(../images/square.png);
+            opacity: 1;
+            z-index: 2;
+            margin-top: -20px;
+            height: calc(41 * 20px);
+        }
+        div.spiderman {
+            background-color: #e1f5fe;
+            height: 20px;
+            width: 20px;
+            box-shadow: 20px 0 0 0 #e1f5fe,
+                        40px 0 0 0 #e1f5fe,
+                        60px 0 0 0 #e1f5fe,
+                        80px 0 0 0 #e1f5fe,
+                        100px 0 0 0 #e1f5fe,
+                        120px 0 0 0 #e1f5fe,
+                        140px 0 0 0 #e1f5fe,
+                        160px 0 0 0 #e1f5fe,
+                        180px 0 0 0 #e1f5fe,
+                        200px 0 0 0 #e1f5fe,
+                        220px 0 0 0 #000,
+                        240px 0 0 0 #000,
+                        260px 0 0 0 #000,
+                        280px 0 0 0 #000,
+                        300px 0 0 0 #000,
+                        320px 0 0 0 #000,
+                        340px 0 0 0 #e1f5fe,
+                        360px 0 0 0 #e1f5fe,
+                        380px 0 0 0 #e1f5fe,
+                        400px 0 0 0 #e1f5fe,
+                        420px 0 0 0 #e1f5fe,
+                        440px 0 0 0 #e1f5fe,
+
+                        0 20px 0 0 #e1f5fe,
+                        20px 20px 0 0 #e1f5fe,
+                        40px 20px 0 0 #e1f5fe,
+                        60px 20px 0 0 #e1f5fe,
+                        80px 20px 0 0 #e1f5fe,
+                        100px 20px 0 0 #e1f5fe,
+                        120px 20px 0 0 #e1f5fe,
+                        140px 20px 0 0 #e1f5fe,
+                        160px 20px 0 0 #e1f5fe,
+                        180px 20px 0 0 #000,
+                        200px 20px 0 0 #000,
+                        220px 20px 0 0 #f00,
+                        240px 20px 0 0 #f00,
+                        260px 20px 0 0 #f00;
+        }
+    </style>
+</head>
+<body class="css">
+    <nav>
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </a>
+    </nav>
+    <main>
+        <header>
+            <h1>00- templade.html</h1>
+            <h2>Pixel Art (Spiderman).</h2>
+        </header>
+        <section>
+            <figure class="frame">
+                <div class="spiderman"></div>
+                <div class="squares"></div>
+            </figure>
+        </section>
+    </main>
+</body>
+</html>
