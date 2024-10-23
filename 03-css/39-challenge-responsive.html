@@ -20,14 +20,23 @@ section.images {
     margin: 0 100px 0 100px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .images {
+    justify-content: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem;
+            
 
-
-
-    display: flex;
-    padding: 5px 5px 10px 5px;
+            div.two{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
 
     div.sprites:is(:hover) .spam2 {
         background-color: rgba(252, 250, 250, 0.975);
