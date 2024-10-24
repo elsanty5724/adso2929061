@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>45-challenge-grid </title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh
+}
+div {
+  display: grid;
+  place-items: center;
+  /*
+  grid-template-columns: repeat(3, 140px);
+  grid-template-rows: repeat(3, 140px);
+  */
+  grid-template-areas: 
+      "img01 img02 img03"
+      "img04 img02 img05"
+      "img06 img06 img07";
+  margin: 2rem auto;
+  width: calc(140px * 3);
+  gap: 8px;
+}
+
+div img {
+  border-radius: 4px;
+  outline: solid #000;
+  object-fit: cover;
+  height: 140px;
+  width: 140px;
+}
+
+div.grid1 img.img01 {
+  grid-area: img01;
+}
+div.grid1 img.img02 {
+  grid-area: img02;
+  height: calc(140px * 2 + 8px);
+}
+div.grid1 img.img03 {
+  grid-area: img03;
+}
+div.grid1 img.img04 {
+  grid-area: img04;
+}
+div.grid1 img.img05 {
+  grid-area: img05;
+}
+div.grid1 img.img06 {
+  grid-area: img06;
+  width: calc(140px * 2 + 8px);
+}
+div.grid1 img.img07 {
+  grid-area: img07;
+}
+div.grid2{
+  display: grid;
+  place-items: center;
+  /*
+  grid-template-columns: repeat(3, 140px);
+  grid-template-rows: repeat(3, 140px);
+  */
+  grid-template-areas: 
+      "img01 img01 img02 img03"
+      "img01 img01 img04 img04"
+      "img05 img06 img04 img04";
+  margin: 2rem auto;
+  width: calc(140px * 3);
+  gap: 8px;
+}
+div img {
+  border-radius: 4px;
+  outline: solid #000;
+  object-fit: cover;
+  height: 140px;
+  width: 140px;
+}
+
+div.grid2 img.img01 {
+  grid-area: img01;
+  height: calc(140px * 2 + 8px);
+  width: calc(140px * 2 + 8px);
+}
+div.grid2 img.img02 {
+  grid-area: img02;
+}
+div.grid2 img.img03 {
+  grid-area: img03;
+}
+div.grid2 img.img04 {
+  grid-area: img04;
+  width: calc(140px * 2 + 8px);
+  height: calc(140px * 2 + 8px);
+}
+div.grid2 img.img05 {
+  grid-area: img05;
+}
+div.grid2 img.img06 {
+  grid-area: img06;
+}
+
+    </style>
+</head>
+<body class="css">
+    <nav>
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </a>
+    </nav>
+    <main>
+        <header>
+            <h1>45-challenge-grid</h1>
+            <h2>Irregular Gallery.</h2>
+        </header>
+        <section>
+
+        </section>
+    <div class="grid1">
+        <img src="https://e7.pngegg.com/pngimages/538/784/png-clipart-captain-america-illustration-cliffjumper-cartoon-captain-america-marvel-avengers-assemble-comics.png" class="img01">
+        <img src="https://w7.pngwing.com/pngs/930/888/png-transparent-marvel-comics-incredible-hulk-hulk-youtube-cartoon-drawing-she-hulk-fictional-characters-superhero-comic-book-thumbnail.png" class="img02">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv6asHSk9BqUkYF81gpH3vYBw8ws79dV9oCA&s" class="img03">
+        <img src="https://img.freepik.com/vector-premium/spiderman-mascara-columpiandose-dibujos-animados-ilustracion-vectorial_969863-311152.jpg?semt=ais_hybrid" class="img04">
+        <img src="https://i.pinimg.com/736x/6d/3f/47/6d3f47acc3bf81e9f34bcb095aae772d.jpg" class="img05">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv6asHSk9BqUkYF81gpH3vYBw8ws79dV9oCA&s" class="img06">
+        <img src="https://i.pinimg.com/736x/f5/a5/4e/f5a54ec182525d5c91bebc770189be41.jpg" class="img07">
+      
+    </div>
+    <div class="grid2">
+        <img src="https://static.vecteezy.com/system/resources/previews/008/252/907/non_2x/fc-barcelona-logo-football-club-barcelona-crest-emblem-on-a-blaugrana-background-free-vector.jpg" class="img01">
+        <img src="https://media.tycsports.com/files/2023/07/13/592793/inter-miami_w416.webp" class="img02">
+        <img src="https://i.pinimg.com/1200x/cf/10/45/cf1045a13a3ed3bb080b8645510483ca.jpg" class="img03">
+        <img src="https://s0.smartresize.com/wallpaper/746/186/HD-wallpaper-once-caldas-logo-colombian-football-club-silk-texture-white-flag-categoria-primera-a-manizales-colombia-football-liga-aguila.jpg" class="img04">
+        <img src="https://www.brandemia.org/wp-content/uploads/2013/02/PSG_marca_escudo.jpg" class="img05">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGPlWvaqliNzVanH_Xyys_p_mKvkRrNGQm3Q&s" class="img06">
+      
+    </div>
+</body>
+</html>
