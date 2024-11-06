@@ -5,6 +5,10 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title 00- Template
         link(rel="stylesheet", href="../../css/styles.css")
+        style 
+            ul {
+                padding-left: 1rem;
+            }
     body.pug
         nav
             a(href="../index.html")
@@ -13,5 +17,14 @@ html(lang="en")
         main
             header
                 h1 00- Template
-                p Lorem
+                h2 Lorem
             section
+                mixin dragon(name)
+                    li.dragon=name 
+                h3 list of dragon (GOT)
+                ul 
+                    +dragon('Rhaegal')
+                    +dragon('Viserion') 
+                    +dragon('Drogon')
+                    +dragon('Dreamfyre')
+                    +dragon('Tessarion')
