@@ -19,8 +19,6 @@ html(lang="en")
                 table
                     - const divBackgrounds = ['#90CAF9','#64B5F6','#03A9F4','#039BE5','#0288D1','#0277BD','#00ACC1','#0097A7','#00838F','#009688']
                     each val, index in ['#64B5F6','#42A5F5','#2196F3','#0288D1','#0277BD','#01579B','#0097A7','#00838F','#006064','#004D40']
-                        tr
-                        tr
-                        tr
+
                             td(style='width: 400px; height: 80px; color: white; display: flex; align-items: center; font-size: 1.5em; font-weight: bold; border-radius: 1rem 0 ; background-color: ' + val)
                                 div(style='width: 60px; height: 80px; display: flex; align-items: center; justify-content: center; background-color: ' + divBackgrounds[index] + '')= index + 1
