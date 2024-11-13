@@ -1,0 +1,141 @@
+$section.content
+    display: flex
+    flex-direction: column
+    align-items: center
+article
+    border: 4px solid #742d56
+    display: inline-block
+    height: 280px
+    margin: 2px
+    overflow: hidden
+    width: 280px
+    figure
+        background: url(../images/kirby.webp) no-repeat center
+        background-size: 100%
+        height: 280px
+        margin: 0px
+        padding: 0px
+        position: relative
+        transition: all 0.5s ease-in-out
+        div
+            background-color: rgba(0,0,0,.8)
+            top: -100px
+            position: absolute
+            transition: all 0.6s 0.2s ease-in
+            display: flex
+            gap: 0.6rem
+            padding: 20px 0
+            align-items: center
+            justify-content: center
+            text-align: center
+            width: 280px
+            button
+                border: 1px solid #cd639a
+                border-radius: 20px
+                background-color: #000
+                color: #cd639a
+                font-size: 1em
+                padding: 10px
+                width: 120px
+                transition: all 0.4s ease-in
+                &:hover
+                    cursor: pointer
+                    background-color: #cd639a
+                    border: 1px solid #000
+                    color: #000
+    &:hover figure
+        cursor: pointer
+        background-size: 120%
+    &:hover figure div
+        top: 0px
+ 
+alejandro (No comprobado) fue invitado a la reunión.
+
+ 
+alejandro (No comprobado) abandonó el chat.
+
+ 
+// This is a line comment
+// This comment is only from SASS
+// It is not rendered in the CSS
+section.content
+    /* This is a block comment,
+        and it is visible in the CSS. */
+    p
+        line-height: 1.6em
+        word-spacing: 0.4em
+        text-align: justify
+        font-size: 1.2rem
+ 
+<menu class="menu">
+                <ul>
+                    <li>Home</li>
+                    <li>
+                        About
+                        <ul class="submenu">
+                            <li>History</li>
+                            <li>Mision</li>
+                            <li>Vision</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Services
+                        <ul class="submenu">
+                            <li>WebApps</li>
+                            <li>MobileApps</li>
+                        </ul>
+                    </li>
+                    <li>Contact</li>
+                </ul>
+            </menu>
+ 
+$bg-color-menu: #cd639a
+$bg-color-hover: #742d56
+ 
+$width-menu: 420px
+$width-submenu: 86px
+ 
+section.content
+    margin: 100px auto
+    padding: 10px
+    menu.menu
+        margin: 0px
+        padding: 0px
+        ul
+            list-style: none
+            margin: 0px auto
+            padding: 10px
+            width: $width-menu
+            li
+                background-color: $bg-color-menu
+                color: #fff
+                display: inline-block
+                padding: 10px
+                font-size: 0.72rem
+                position: relative
+                text-align: center
+                transition: all 0.5s ease-in
+                width: $width-submenu
+                &:hover
+                    color: #fff
+                    background-color: $bg-color-hover
+                    cursor: pointer
+                ul.submenu
+                    //display: none
+                    left: -10px
+                    opacity: 0
+                    position: absolute
+                    top: 40px
+                    transition: all 0.5s ease-out
+                    transform: translateY(-20px)
+                    width: 180px
+                &:hover ul.submenu
+                    //display: block
+                    transform: translateY(-10px)
+                    opacity: 1
+                    li
+                        display: block
+                        margin: 4px 0px
+                        &:hover
+                            background-color: $bg-color-hover
+ 
