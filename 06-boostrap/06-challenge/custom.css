@@ -1,0 +1,24 @@
+
+nav.navbar.bg-custom {
+    background-color: #28F0CF;
+    a.navbar-brand,
+    a.nav-link {
+        color: #000000;
+    }
+}
+/* Hero Section */
+div.row.hero {
+    padding-top: 86px;
+    div.col:nth-child(1) {
+        background-color: #28F0CF;
+        height: 680px;
+        a.btn.bg-custom {
+            background-color: #404040;
+        }
+    }
+    div.col:nth-child(2) {
+        background:  url(../images/foto\(1\)\(1\).png) no-repeat center bottom;
+        background-size: 480px;
+        height: 680px;
+    }
+}
