@@ -8,16 +8,36 @@ nav.navbar.bg-custom {
 }
 /* Hero Section */
 div.row.hero {
-    padding-top: 86px;
+    padding-top: 58px;
     div.col:nth-child(1) {
         background-color: #28F0CF;
         height: 680px;
         a.btn.bg-custom {
-            background-color: #404040;
+            background-color: #000;
+            color: #28F0CF;
         }
     }
     div.col:nth-child(2) {
-        background:  url(../images/foto\(1\)\(1\).png) no-repeat center bottom;
+        background:  url(../images/foto2.png.jpg) no-repeat center bottom;
+        background-size: 480px;
+        height: 680px;
+    }
+}
+/* About */
+div.row.about {
+    padding-top: 0px;
+    div.col:nth-child(2) {
+        background-color: #fff;
+        height: 680px;
+        a.btn.bg-custom {
+            background-color: #404040;
+        }
+        .progress-bar.bg-custom {
+            background-color: #28F0CF;
+        }
+    }
+    div.col:nth-child(1) {
+        background:  url(../images/foto1.png.jpg) no-repeat center bottom;
         background-size: 480px;
         height: 680px;
     }
