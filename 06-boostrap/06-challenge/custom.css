@@ -18,7 +18,7 @@ div.row.hero {
         }
     }
     div.col:nth-child(2) {
-        background:  url(../images/foto2.png.jpg) no-repeat center bottom;
+        background:  url(/06-boostrap/images/foto2.png.jpg) no-repeat center bottom;
         background-size: 480px;
         height: 680px;
     }
@@ -42,3 +42,4 @@ div.row.about {
         height: 680px;
     }
 }
+
