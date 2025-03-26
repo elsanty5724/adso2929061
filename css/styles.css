@@ -443,3 +443,52 @@ body.bootstrap {
         }
     }
 }
+
+/* - - - - - - - - - - - - - */
+/* tailwind */
+/* - - - - - - - - - - - - - */
+body.tailwind {
+    background-color: #16C2FF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Cellipse fill='none' stroke-width='84.7' id='a' rx='600' ry='450'/%3E%3C/defs%3E%3Cg transform='scale(0.712)' style='transform-origin:center'%3E%3Cg transform='rotate(120.6 0 0)' style='transform-origin:center'%3E%3Cg transform='rotate(-144 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%23FFFFFF' href='%23a' transform='rotate(-54 0 0) scale(0.46)'/%3E%3Cuse stroke='%23f8fcff' href='%23a' transform='rotate(-45 0 0) scale(0.55)'/%3E%3Cuse stroke='%23f1f9ff' href='%23a' transform='rotate(-36 0 0) scale(0.64)'/%3E%3Cuse stroke='%23eaf7ff' href='%23a' transform='rotate(-27 0 0) scale(0.73)'/%3E%3Cuse stroke='%23e3f4ff' href='%23a' transform='rotate(-18 0 0) scale(0.82)'/%3E%3Cuse stroke='%23dbf1ff' href='%23a' transform='rotate(-9 0 0) scale(0.91)'/%3E%3Cuse stroke='%23d4eeff' href='%23a'/%3E%3Cuse stroke='%23ccebff' href='%23a' transform='rotate(9 0 0) scale(1.09)'/%3E%3Cuse stroke='%23c5e9ff' href='%23a' transform='rotate(18 0 0) scale(1.18)'/%3E%3Cuse stroke='%23bde6ff' href='%23a' transform='rotate(27 0 0) scale(1.27)'/%3E%3Cuse stroke='%23b5e3ff' href='%23a' transform='rotate(36 0 0) scale(1.36)'/%3E%3Cuse stroke='%23ade0ff' href='%23a' transform='rotate(45 0 0) scale(1.45)'/%3E%3Cuse stroke='%23a4ddff' href='%23a' transform='rotate(54 0 0) scale(1.54)'/%3E%3Cuse stroke='%239bdbff' href='%23a' transform='rotate(63 0 0) scale(1.63)'/%3E%3Cuse stroke='%2392d8ff' href='%23a' transform='rotate(72 0 0) scale(1.72)'/%3E%3Cuse stroke='%2389d5ff' href='%23a' transform='rotate(81 0 0) scale(1.81)'/%3E%3Cuse stroke='%237fd2ff' href='%23a' transform='rotate(90 0 0) scale(1.9)'/%3E%3Cuse stroke='%2374d0ff' href='%23a' transform='rotate(99 0 0) scale(1.99)'/%3E%3Cuse stroke='%2368cdff' href='%23a' transform='rotate(108 0 0) scale(2.08)'/%3E%3Cuse stroke='%235bcaff' href='%23a' transform='rotate(117 0 0) scale(2.17)'/%3E%3Cuse stroke='%234bc7ff' href='%23a' transform='rotate(126 0 0) scale(2.26)'/%3E%3Cuse stroke='%2337c5ff' href='%23a' transform='rotate(135 0 0) scale(2.35)'/%3E%3Cuse stroke='%2316C2FF' href='%23a' transform='rotate(144 0 0) scale(2.44)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    main {
+        header {
+            h1 {
+                color: #000000;
+            }
+
+            h2 {
+                color: #000000;
+                border-bottom: none;
+                max-width: 80%;
+                font-weight: 400;
+            }
+        }
+
+        section {
+            width: 80%;
+
+            p {
+                color: #16C2FF;
+                font-size: 1rem;
+                align-items: center;
+            }
+        }
+
+        menu {
+            a:is(:link, :visit) {
+                color: #16C2FF;
+                font-weight: 500;
+
+                span {
+                    background-color: #16C2FF;
+                }
+            }
+
+            h3 {
+                color: #16C2FF;
+            }
+        }
+    }
+}
