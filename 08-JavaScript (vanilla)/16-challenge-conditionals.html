@@ -1,346 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>16 - Challenge</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <style>
-        div.weather {
-            div.search {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>15 - Challenge Conditional</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    section {
+      display: flex;
+      justify-content: center;
+      padding: 50px 15px;
+    }
 
-                input.query {
-                    border: none;
-                    border-radius: 5rem;
-                    outline: none;
-                    padding: 0.4rem 0.6rem;
-                }
+    .weather {
+      max-width: 400px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      background: #64ff03;
+      color: #017afc;
+      transition: all 0.4s ease;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      backdrop-filter: blur(10px);
+    }
 
-                button.btn-search {
-                    border: none;
-                    background: transparent;
-                    width: 50px;
-                    cursor: pointer;
-                    transition: transform 0.2s ease-in;
+    .weather.day {
+      background: url(../08-javascript/images/clima/dia.png);
+  
+      color: #fb0000;
+    }
 
-                    &:hover {
-                        transform: scale(1.1);
-                    }
-                }
-            }
-        }
+    .weather.night {
+      background: url(../08-javascript/images/clima/noche.avif);
+      
+      color: #f1f1f1;
+    }
 
-        div.widget {
-            position: center;
-            width: 360px;
-            height: 380px;
-            left:20%;
-            background: url(images/Dia.png);
+    .weather input.q {
+      padding: 10px;
+      width: 85%;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
 
-            h4.pais {
-                position: center;
-                top: -20px;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 1.4rem;
-                font-weight: 500;
-                color: #333333;
-            }
+    .weather button.btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #001eff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
 
-            h4.ciudad {
-                position: center;
-                top: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 1.8rem;
-                color: #333333;
-            }
+    .weather.day button.btn:hover {
+      background-color: #004d40;
+    }
 
-            h4.fecha {
-                position: absolute;
-                top: 70px;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 1rem;
-                color: #333333;
-            }
+    .weather.night button.btn {
+      background-color: #4db6ac;
+      color: #000;
+    }
 
+    .weather.night button.btn:hover {
+      background-color: #26a69a;
+    }
 
-            div.temp {
-                width: 200px;
-                height: 200px;
-                position: relative;
-                top: 100px;
-                left: 50%;
-                transform: translateX(-50%);
+    .weather img {
+      width: 90px;
+      height: 90px;
+      margin: 15px 0;
+      filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.4));
+    }
 
-                img.icoCon {
-                    position: center;
-                    width: 100%;
-                    height: 100%;
-                }
+    .show h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
 
-                h4.tempText {
-                    position: absolute;
-                    top: 15px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-size: 3rem;
-                    color: #9A7979;
-                    text-shadow: 0 0 4px #333333;
+    .show p {
+      margin: 6px 0;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
 
-                }
-            }
-
-
-            h4.condicion {
-                position: absolute;
-                top: 270px;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 0.8rem;
-                font-weight: 300;
-                color: #333333;
-            }
-
-            h4.humedad {
-                position: absolute;
-                top: 320px;
-                padding-left: 30px;
-                font-size: 0.8rem;
-                font-weight: 300;
-                color: #333333;
-
-            }
-
-            h4.nube {
-                text-align: right;
-                position: absolute;
-                top: 320px;
-                padding-left: 270px;
-                font-size: 0.8rem;
-                font-weight: 300;
-                color: #333333;
-            }
-
-            &.night {
-                position: center;
-                width: 360px;
-                height: 380px;
-                background: url(images/Noche.png);
-
-                h4.pais {
-                    position: absolute;
-                    top: -20px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-size: 1.4rem;
-                    font-weight: 500;
-                    color: #827A7A;
-                }
-
-                h4.ciudad {
-                    position: absolute;
-                    top: 10px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-size: 1.8rem;
-                    color: #827A7A;
-                }
-
-                h4.fecha {
-                    position: absolute;
-                    top: 70px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-size: 1rem;
-                    color: #827A7A;
-                }
-
-                div.temp {
-                    width: 200px;
-                    height: 200px;
-                    position: relative;
-                    top: 100px;
-                    left: 50%;
-                    transform: translateX(-50%);
-
-                    img.icoCon {
-                        position: center;
-                        width: 100%;
-                        height: 100%;
-                    }
-
-                    h4.tempText {
-                        position: absolute;
-                        top: 15px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        font-size: 3rem;
-                        color: #FFFFFF;
-                        text-shadow: 0 0 4px #333333;
-
-                    }
-                }
-
-                h4.condicion {
-                    position: absolute;
-                    top: 270px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-size: 0.8rem;
-                    font-weight: 300;
-                    color: #827A7A;
-                }
-
-                h4.humedad {
-                    position: absolute;
-                    top: 320px;
-                    padding-left: 30px;
-                    font-size: 0.8rem;
-                    font-weight: 300;
-                    color: #827A7A;
-
-                }
-
-                h4.nube {
-                    text-align: right;
-                    position: absolute;
-                    top: 320px;
-                    padding-left: 270px;
-                    font-size: 0.8rem;
-                    font-weight: 300;
-                    color: #827A7A;
-                }
-            }
-        }
-    </style>
+    @media screen and (max-width: 480px) {
+      .weather {
+        padding: 20px 15px;
+      }
+      .show p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body class="JS">
-    <nav>
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path fill="#ffffff"
-                    d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z">
-                </path>
-            </svg>
-        </a>
-    </nav>
-    <main>
-        <header>
-            <h1>16 - Challenge</h1>
-            <h2>Resuelve problemas usando lógica condicional.</h2>
+  <nav>
+    <a href="index.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+      </svg>
+    </a>
+  </nav>
+  <main>
+    <header>
+      <h1>16 - Challenge Conditional</h1>
+      <p>
+        Solve problems using conditional logic.
+      </p>
+    </header>
+    <section>
+      <figure class="weather">
+        
+        <input type="text" class="q"   placeholder="Enter a location">
+        <button class="btn">Show</button>
+        <div class="show"></div>
+      </figure>
+    </section>
+  </main>
+  <script>
+    const q = document.querySelector('.q');
+    const btn = document.querySelector('.btn');
+    const show = document.querySelector('.show');
+    const weatherBox = document.querySelector('.weather');
 
-        </header>
-        <section>
-            <div class="weather">
-                <div class="search">
-                    <input class="query" type="text" placeholder="location">
-                    <button class="btn-search">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                            <path d="M8.25 10.875a2.625 2.625 0 1 1 5.25 0 2.625 2.625 0 0 1-5.25 0Z" />
-                            <path fill-rule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.125 4.5a4.125 4.125 0 1 0 2.338 7.524l2.007 2.006a.75.75 0 1 0 1.06-1.06l-2.006-2.007a4.125 4.125 0 0 0-3.399-6.463Z"
-                                clip-rule="evenodd" />
-                        </svg>
+    btn.addEventListener('click', () => {
+      if (q.value.trim()) {
+        showWeather(q.value.trim());
+      }
+    });
 
-                    </button>
-                </div>
-                <div class="widget">
-                    <img class="icoDia">
-                    <h4 class="pais"></h4>
-                    <h4 class="ciudad"></h4>
-                    <h4 class="fecha"></h4>
-                    <div class="temp">
-                        <img class="icoCon" src="" alt="">
-                        <h4 class="tempText"></h4>
-                    </div>
-                    <h4 class="condicion"></h4>
-                    <h4 class="humedad"></h4>
-                    <h4 class="nube"></h4>
-                </div>
-            </div>
-        </section>
-    </main>
-    <script>
-        //
-        const q = document.querySelector('.query')
-        const btnSearch = document.querySelector('.btn-search')
-        const infoList = document.querySelector('.info')
+    const showWeather = async (location) => {
+      try {
+        const url = `https://api.weatherapi.com/v1/current.json?key=2d5e221c0a4341b29ce10745251005&q=${location}`;
+        const response = await fetch(url);
+        const data = await response.json();
 
+        const info = {
+          country: data.location.country,
+          name: data.location.name,
+          time: data.location.localtime,
+          temp: data.current.temp_c,
+          isDay: data.current.is_day,
+          icon: data.current.condition.icon,
+          condition: data.current.condition.text,
+          humidity: data.current.humidity,
+          fog: data.current.vis_km
+        };
 
-        widget = document.querySelector('.widget')
-
-        const pais = document.querySelector('.pais')
-        const ciudad = document.querySelector('.ciudad')
-        const fecha = document.querySelector('.fecha')
-        const condicion = document.querySelector('.condicion')
-        const humedad = document.querySelector('.humedad')
-        const nube = document.querySelector('.nube')
-        const icoCon = document.querySelector('.icoCon')
-        const tempText = document.querySelector('.tempText')
-
-        //Events
-        btnSearch.addEventListener('click', () => {
-            if (q.value.length > 0) {
-                showWeather(q.value)
-                q.value = ''
-            } else {
-                alert('Por favor inserte una Ubicacion')
-            }
-        })
-
-        const showWeather = async (q) => {
-            const url = `https://api.weatherapi.com/v1/current.json?key=9a61cceb9d46444fa9d11106251005&q=${q}`
-            const response = await fetch(url)
-            const data = await response.json()
-            console.log(data)
-
-            info = {
-                "Country": data.location.country,
-                "name": data.location.name,
-                "datetime": data.current.last_updated,
-                "tempc": data.current.temp_c,
-                "isDay": data.current.is_day,
-                "conditionText": data.current.condition.text,
-                "conditionIcon": data.current.condition.icon,
-                "humidity": data.current.humidity,
-                "cloud": data.current.cloud
-
-
-            }
-            console.log(info)
-            //infoList.textContent = JSON.stringify(info)
-            /* infoList.innerHTML = ''
-             for (i in info) {
-                 if (i == 'conditionIcon') {
-                     infoList.innerHTML += `<li> ${i}: <img src='${info[i]}' width='30'></li>`
-                 } else {
-                     infoList.innerHTML += `<li>${i}: ${info[i]}</li>`
-                 }
-             }*/
-            if (info.isDay == 0) {
-                widget.classList.add('night')
-            } else {
-                widget.classList.remove('night')
-            }
-            pais.textContent = info.Country
-            ciudad.textContent = info.name
-            fecha.textContent = info.datetime
-            condicion.textContent = `Condition: ${info.conditionText}`
-            humedad.textContent = `Humidity: ${info.humidity}`
-            nube.textContent = `Cloud: ${info.cloud}`
-            icoCon.src = info.conditionIcon
-            tempText.textContent = `${info.tempc}°`
+        if (info.isDay == 1) {
+          weatherBox.classList.remove('night')
+          
         }
-        showWeather('Manizales')
-    </script>
-</body>
+        else {
+          weatherBox.classList.add('night')
+        }
+        if(info.isDay == 0) {
+          weatherBox.classList.remove('day')
+        }
+        else {
+          weatherBox.classList.add('day')
+        }
 
+        show.innerHTML = `
+          <h3>${info.name}, ${info.country}</h3>
+          <p>${info.time}</p>
+          <img src="https:${info.icon}" alt="${info.condition}">
+          <p><strong>${info.temp}°C</strong> - ${info.condition}</p>
+          <p><strong>Humidity:</strong> ${info.humidity}%</p>
+          <p><strong>Fog (Visibility):</strong> ${info.fog} km</p>
+        `;
+      } catch (err) {
+        show.innerHTML = '<p>Error: city not found or API problem.</p>';
+        weatherBox.classList.remove('day', 'night');
+      }
+    };
+  </script>
+</body>
 </html>
