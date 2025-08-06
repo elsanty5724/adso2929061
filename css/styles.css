@@ -508,7 +508,7 @@ body.JS{
             }
 
             h2 {
-                color: #000000;
+                color: #ffffff;
                 border-bottom: none;
                 max-width: 80%;
                 font-weight: 400;
@@ -527,11 +527,11 @@ body.JS{
 
         menu {
             a:is(:link, :visit) {
-                color: #fceb03;
+                color: #000000;
                 font-weight: 500;
 
                 span {
-                    background-color: #000  ;
+                    background-color: #000000  ;
                 }
             }
 
