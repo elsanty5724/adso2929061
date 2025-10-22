@@ -1,37 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>12-challenge-memory-game</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Juego de Memoria de Escudos</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+<style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #000000;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #cce;
+    }
+
+    section.memory-game {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem 1rem;
+            background: linear-gradient(rgba(0, 7, 195, 0), rgba(0, 94, 225, 0)), url('images/fondo2.jpg');
+            border-radius: 1rem;
+            box-shadow: 0 2px 12px #0002;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            z-index: 1;
+    }
+
+    .game-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .timer {
+      color: #ff5252;
+      font-weight: bold;
+    }
+
+    .memory-board {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      gap: 22px;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .card-front {
+      transform: rotateY(180deg);
+    }
+
+    .card-back {
+      background: linear-gradient(135deg, #444, #222);
+      border: 2px solid #666;
+    }
+
+    .card.matched {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .message {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .btn-start {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      border: none;
+      background: #4C255F;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .btn-start:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
+  </head>
+  <body class="jquery">
+
+  <main>
+    <header>
+      <h1>Memoria de Escudos</h1>
+      <p>Encuentra los pares de escudos. ¡Pon a prueba tu memoria!</p>
+    </header>
+
+    <section class="memory-game">
+      <div class="game-info">
+        <div>Tiempo: <span class="timer">2:00</span></div>
+        <div>Movimientos: <span class="moves">0</span></div>
+      </div>
+      <div class="memory-board"></div>
+      <div class="message"></div>
+      <button class="btn-start" id="btnIniciar">INICIAR</button>
+      <iframe 
+  src="https://embed.figma.com/design/7shR8HtOXoM3LFonLWwarQ/Untitled?node-id=0-1&embed-host=share" 
+  width="300" 
+  height="450" 
+  style="border:1px solid #0001" 
+  allowfullscreen>
+</iframe>
+    </section>
+  </main>
     <script src="js/jquery-3.7.1.min.js"></script>
-</head>
-
-<body class="jquery">
-    <nav>
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path fill="#ffffff"
-                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
-            </svg>
-    </nav>
-    </a>
-    <main>
-        <header>
-            <h1>12-challenge-memory-game</h1>
-            <h2>Configura e incluye jQuery en tu proyecto. </h2>
-        </header>
-        <section>
-    
-        </section>
-    </main>
     <script>
-        
-    </script>
-</body>
+$(document).ready(function () {
+    
 
+    const escudos = [
+        { img: 'images/barcelona.png', name: 'barcelona' },
+        { img: 'images/arsenal.png', name: 'arsenal' },
+        { img: 'images/brazil.png', name: 'brazil' },
+        { img: 'images/oncecaldas.png', name: 'once caldas' },
+        { img: 'images/intermiami.png', name: 'inter miami' },
+        { img: 'images/bayer.png', name: 'bayer' }
+    ];
+
+    
+
+    let cards = $.map([...escudos, ...escudos], function (escudos, i) {
+        return $.extend({}, escudos, { id: i });
+    });
+
+    cards = cards.sort(function () {
+        return Math.random() - 0.5;
+    });
+
+    function renderBoard() {
+        const $board = $('.memory-board');
+        $board.empty();
+        $.each(cards, function (idx, card) {
+            $board.append(`
+                <div class="card" data-idx="${idx}">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="${card.img}" alt="${card.name}" style="width:100%;height:100%;">
+                        </div>
+                        <div class="card-back">
+                            <img src="images/tapada.png" alt="Tapada" style="width:100%;height:100%;">
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
+    }
+
+    let flipped = [];
+    let lock = false;
+    let moves = 0;
+    let matchedPairs = 0;
+    let timer = 120;
+    let timerInterval;
+    let gameEnded = false;
+    let gameStarted = false; 
+
+    function updateMoves() {
+        $('.moves').text(moves);
+    }
+
+    function updateTimer() {
+        const min = Math.floor(timer / 60);
+        const sec = timer % 60;
+        $('.timer').text(`${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`);
+    }
+
+    function showMessage(msg, color = "#ffd700") {
+        $('.message').html(msg).css('color', color);
+    }
+
+    function endGame(win) {
+        gameEnded = true;
+        clearInterval(timerInterval);
+        const mensaje = win
+          ? `¡Ganaste! 🎉 Encontraste todos los pares en ${moves} movimientos.`
+          : `⏰ Se acabó el tiempo.`;
+        showMessage(`${mensaje}<br><button onclick="location.reload()" class="btn-start">Volver a empezar</button>`);
+    }
+
+    function flipCard($card, idx) {
+        if (lock || $card.hasClass('flipped') || $card.hasClass('matched') || !gameStarted || gameEnded) return;
+
+        $card.addClass('flipped');
+        flipped.push(idx);
+
+        if (flipped.length === 2) {
+          moves++;
+          updateMoves();
+          lock = true;
+          const [i1, i2] = flipped;
+
+          if (cards[i1].name === cards[i2].name) {
+            setTimeout(() => {
+              $(`.card[data-idx="${i1}"], .card[data-idx="${i2}"]`).addClass('matched');
+              flipped = [];
+              lock = false;
+              matchedPairs++;
+              if (matchedPairs === escudos.length) endGame(true);
+            }, 600);
+          } else {
+            setTimeout(() => {
+              $(`.card[data-idx="${i1}"], .card[data-idx="${i2}"]`).removeClass('flipped');
+              flipped = [];
+              lock = false;
+            }, 1000);
+          }
+        }
+      }
+
+    function startGame() {
+        if (gameStarted) return;
+        gameStarted = true;
+        $('#btnIniciar').prop('disabled', true).text('Jugando...');
+        $('.message').text('');
+        $('.card').addClass('flipped');
+        setTimeout(() => $('.card').removeClass('flipped'), 2000);
+
+        updateTimer();
+        timerInterval = setInterval(() => {
+          if (gameEnded) return;
+          timer--;
+          updateTimer();
+          if (timer <= 0) endGame(false);
+        }, 1000);
+      }
+
+      renderBoard();
+      updateMoves();
+      updateTimer();
+
+      $('.memory-board').on('click', '.card', function () {
+        const idx = $(this).data('idx');
+        flipCard($(this), idx);
+      });
+
+      $('#btnIniciar').on('click', startGame);
+    });
+  </script>
+
+</body>
 </html>
