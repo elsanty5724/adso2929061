@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Memoria de Escudos</title>
+    <title>Memoria de Escudos</title>
     <link rel="stylesheet" href="../../css/styles.css">
 <style>
     body {
@@ -136,7 +136,7 @@
   <main>
     <header>
       <h1>Memoria de Escudos</h1>
-      <p>Encuentra los pares de escudos. ¡Pon a prueba tu memoria!</p>
+      <p>Encuentra los pares de escudos.</p>
     </header>
 
     <section class="memory-game">
@@ -147,14 +147,14 @@
       <div class="memory-board"></div>
       <div class="message"></div>
       <button class="btn-start" id="btnIniciar">INICIAR</button>
-      <iframe 
+    </section>
+    <iframe 
   src="https://embed.figma.com/design/7shR8HtOXoM3LFonLWwarQ/Untitled?node-id=0-1&embed-host=share" 
   width="300" 
   height="450" 
   style="border:1px solid #0001" 
   allowfullscreen>
 </iframe>
-    </section>
   </main>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script>
@@ -226,8 +226,8 @@ $(document).ready(function () {
         gameEnded = true;
         clearInterval(timerInterval);
         const mensaje = win
-          ? `¡Ganaste! 🎉 Encontraste todos los pares en ${moves} movimientos.`
-          : `⏰ Se acabó el tiempo.`;
+          ? `¡Ganaste! con ${moves} movimientos.`
+          : `Perdiste. Intenta de nuevo.`;
         showMessage(`${mensaje}<br><button onclick="location.reload()" class="btn-start">Volver a empezar</button>`);
     }
 
