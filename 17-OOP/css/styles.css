@@ -88,7 +88,7 @@ html {
 /* G E N E R A L */
 /*--------------------*/
 body {
-    color: var(--color-1);
+    color: #000;
     font-family: var(--fonts-fm);
     display: flex;
     justify-content: center;
@@ -172,7 +172,7 @@ body {
 
             a:is(:link, :visited) {
                 align-items: center;
-                background: gray;
+                background: rgb(0, 0, 0);
                 border-radius: 15px;
                 border-style: double;
                 border-color: rgba(20, 26, 26, 0.671);
